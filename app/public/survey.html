@@ -303,5 +303,46 @@
                 </p>
             </div>
         </div>
+        <script type="text/javascript">
+			// upon clicking the submit button...
+			$("#submit").on("click", function() {
+				// prevents default event upon submission
+				event.preventDefault();
+
+				// stores user input in variable for new friend
+				var newFriend = {
+					name: $("#name").val().trim(),
+					photo: $("#photo").val().trim(),
+					scores: [ 
+					// REFERENCE: https://stackoverflow.com/questions/9618504/get-radio-button-value-with-javascript
+						$("input[name='q1']:checked").val(),
+						$("input[name='q2']:checked").val(),
+						$("input[name='q3']:checked").val(),
+						$("input[name='q4']:checked").val(),
+						$("input[name='q5']:checked").val(),
+						$("input[name='q6']:checked").val(),
+						$("input[name='q7']:checked").val(),
+						$("input[name='q8']:checked").val(),
+						$("input[name='q9']:checked").val(),
+						$("input[name='q10']:checked").val()
+					]
+				};
+
+				if (newFriend.name == "" || newFriend.photo == "") {
+					// if the user does not enter a name or photo url, display error message
+					alert("You must complete the survey in order to find a friend!");
+				} else {
+					// posts data to database of possible friends
+					$.post("/api/friends", newFriend, function(data) {
+						// updates modal contents to display most compatible friend
+						$("#friendname").text(data.name);
+						$("#friendphoto").attr("src", data.photo);
+					});
+
+				// shows modal
+				$("#newfriend").modal("show");
+				}
+			});
+		</script>
     </body>
 </html>

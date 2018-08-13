@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-us">
-    
-    <head>
+
+	<head>
         <title>Friend Finder Survey</title>
         <link rel="shortcut icon" type="image/x-icon"
         href="assets/images/favicon.png">
@@ -13,6 +13,9 @@
         <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+        <!-- JAVASCRIPT AND JQUERY -->
+		<script src="https://code.jquery.com/jquery.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     </head>
     
     <body>
@@ -23,23 +26,27 @@
                 	<h1>Complete this Survey!</h1>
                 	<h3>Tell me all about yourself so that I can help you find a new friend :)</h3>
             </div>
-            <!-- Header row -->
-            <div class="row survey">
-                <form>
-                    <h2>Instructions</h2>
-                    <p><b>Please answer all questions before submitting this form.</b>
-                    <div class="divider"></div>
-                        <h3>Personal Information</h3>
-                    <div class="form-group">
-                        <label for="name">Name (Required)</label>
-                        <input type="text" class="form-control" id="name" placeholder="Jane Doe">
-                    </div>
-                    <div class="form-group">
-                        <label for="photo">Photo URL (Required)</label>
-                        <input type="text" class="form-control" id="photo" placeholder="http://www.myphoto.com/myphoto.jpg">
-                    </div>
-                    <div class="divider"></div>
-                    <!-- Survey questions taken from original assignment-->
+
+			<div class="row survey">
+				<form>
+					<h2>Instructions</h2>
+					<p><b>Please answer all questions before submitting this form.</b> Select the rating which is most applicable to you. A score of 5 indicates that you agree strongly with the statement, which a score of 1 indicates that you disagree strongly with the statement.</p>
+					<div class="divider"></div>
+
+					<h3>Personal Information</h3>
+					<div class="form-group">
+					  	<label for="name">Full Name</label>
+					  	<input type="text" class="form-control" id="name" placeholder="Jane Doe">
+					</div>
+
+					<div class="form-group">
+					  <label for="photo">Photo URL</label>
+					  <input type="text" class="form-control" id="photo" placeholder="http://www.myphoto.com/myphoto.jpg">
+					</div>
+
+					<div class="divider"></div>
+
+					<!-- Survey questions taken from original assignment-->
                     <h3>Survey Questions</h3>
                     <p><b>1. Your mind is always buzzing with unexplored ideas and plans.</b>
                     </p>
@@ -271,8 +278,8 @@
                         <label class="form-check-input">5 (Strongly Agree)</label>
                     </div>
                 </form>
-                <button type="submit" id="submit">Submit!</button>
-            </div> <!-- survey row -->
+                <button class="center-block" type="submit" id="submit">Submit!</button>
+            </div>
 
 			<!-- REFERENCE: https://getbootstrap.com/docs/4.0/components/modal/ -->
 			<!-- REFERENCE: https://getbootstrap.com/docs/3.3/javascript/#modals -->
@@ -296,13 +303,13 @@
 					</div> <!-- modal-content -->
 				</div> <!-- model-dialog -->
 			</div> <!-- modal -->
-            <div class="row">
-                <!-- Footer -->
-                <p class="footer"><a href="/api/friends" target="_blank">Friends API</a> | <a href="https://github.com/carolunita/FriendFinder" target="_blank">GitHub</a>
-                </p>
-            </div>
-        </div>
-        <script type="text/javascript">
+
+			<div class="row"> <!-- footer -->
+                <p class="footer"><a href="/api/friends">Friends API</a> | <a href="https://github.com/carolunita/FriendFinder" target="_blank">GitHub</a>
+			</div> <!-- footer row -->
+		</div> <!-- container -->
+
+		<script type="text/javascript">
 			// upon clicking the submit button...
 			$("#submit").on("click", function() {
 				// prevents default event upon submission
@@ -343,5 +350,5 @@
 				}
 			});
 		</script>
-    </body>
+	</body>
 </html>
